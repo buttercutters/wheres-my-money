@@ -127,8 +127,12 @@ class App extends Component {
         <div className='Transactions'>
           {this.state.transactions.map((transaction, idx) => (
             <transaction key={transaction.transaction_id}>{transaction.date + ' | ' + transaction.name + ' - $' + transaction.amount}<br/>
+<<<<<<< HEAD
               {this.state.transactions.length-1 === idx ||
                transaction.date !== this.state.transactions[idx+1].date ?
+=======
+              {this.state.transactions.length-1 === idx || transaction.date !== this.state.transactions[idx+1].date ?
+>>>>>>> Dynamically render transactions and total spending per day
                 <div>{'Total spent on ' + transaction.date + ' ==> '}<u>{'$' + this.state.transactionSums[transaction.date]}</u><br/><br/></div> :
                 <div></div>
               }
