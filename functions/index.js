@@ -119,6 +119,7 @@ exports.getTransactionsFromPlaid = functions.https.onRequest((request, response)
 
 exports.getTransactionsFromDatabase = functions.https.onRequest((request, response) => {
   response.header('Access-Control-Allow-Origin', '*');
+
   const uniqueUserId = request.body.uniqueUserId;
 
   admin.database()
@@ -126,4 +127,3 @@ exports.getTransactionsFromDatabase = functions.https.onRequest((request, respon
     .once('value')
     .then(snapshot => response.json(snapshot.val()) );
 });
-
