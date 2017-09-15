@@ -216,10 +216,18 @@ exports.getDailySpending = functions.https.onRequest((request, response) => {
     url: 'http://localhost:5000/testproject-6177f/us-central1/getTransactionsFromDatabase',
     payload: {uniqueUserId: uniqueUserId}
   };
-
+  let transactionsByDate = {}
   // Gets a user's transactions from db
   // then sums the transaction amounts by date
   axios.post(config.url, config.payload)
+  .then(transactions => {
+    let transactionsByDate = {}
+
+    transactionsByDate.forEach(transaction => {
+
+    })
+  })
+
   .then(transactions => {
     let sums = {};
     transactions.data.forEach(transaction => {
@@ -232,6 +240,7 @@ exports.getDailySpending = functions.https.onRequest((request, response) => {
     return sums;
   }).then(sums => response.json(sums))
   .catch(error => {console.log(error);});
+
 });
 
 //************** GET TRANSACTIONS FROM DATABASE ************************//
