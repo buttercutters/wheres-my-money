@@ -16,7 +16,7 @@
   },
   "scripts": {
     "webhook": "ngrok http 5000",
-    "getEnv": "./envkey-fetch-osx > src/creds.json",
+    "getEnv": "./envkey-fetch > src/creds.json",
     "start": "react-scripts start",
     "deploy-staging": "npm run build && firebase deploy -P staging",
     "deploy-production": "npm run build && firebase deploy -P production",
